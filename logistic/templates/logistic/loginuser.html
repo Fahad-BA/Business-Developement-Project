@@ -1,0 +1,16 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h2>{{ error }}</h2>
+<h1>You already logged in as: <span>{{ user.username }}</span></h1>
+  {% else %}
+  <h1>Login.</h1>
+    <form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-secondary btn-lg">Login</button>
+</form>
+{% endif %}
+{% endblock %}

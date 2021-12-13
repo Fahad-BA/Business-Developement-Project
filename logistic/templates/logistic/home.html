@@ -1,0 +1,18 @@
+<head>
+    <title>Logistics Company</title>
+</head>
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+
+<h1>Goods <span>Importing</span></h1>
+<h3>Your Trust, Our Business.</h3>
+<hr>
+
+<br><h3>Who are we?</h3>
+<p class="paddingB">We are a Goods Delivery Company for small businesses, we get the orders from our customers and store their parcels in our warehouses for 45 days for free, then they will have to pay for each week of storage.
+    <br>We commit to store their parcels in safe places, and deliver your shipments from the international store to your local storage...<a href="{% url 'about'%}">Read more.</a><br><br>
+<a type="button" class="btn btn-light" href="{% url 'orders' %}">New Order</a> <a type="button" class="btn btn-light" href="{% url 'tracking' %}">Track an order</a>
+
+
+{% endblock %}

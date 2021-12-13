@@ -1,0 +1,13 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+        <title>Logistics company | Packages</title>
+
+        <h1>Our <span>Packages</span></h1>
+        <h3>Your Trust, Our Business.</h3>
+        <hr>
+
+        {% for Pack in Packs %}
+        <h3><b>{{Pack.Packs}}:</b></h3> <p class="paddingB">{{Pack.Description|linebreaks}}</p><br>
+        {% endfor %}
+{% endblock %}

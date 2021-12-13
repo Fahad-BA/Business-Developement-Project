@@ -1,0 +1,16 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+        <title>Logistics company | Orders</title>
+        <h1>Orders <span>Page</span></h1>
+        <h3>Your Trust, Our Business.</h3>
+        <hr>
+        {% if user.is_authenticated %}
+<h3>Your order has been received.<br>We will contact you soon.</h3>
+<a type="button" class="btn btn-light" href="{% url 'home' %}">Home</a>  <a type="button" class="btn btn-light" href="{% url 'orders'%}">New Order</a>
+        {% else %}
+        <h3>You have to be logged in to submit a new order..</h3>
+
+        {% endif %}
+
+{% endblock %}

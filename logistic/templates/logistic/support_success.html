@@ -1,0 +1,12 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+        <title>Logistics company | Support</title>
+
+        <h1>Customer <span>Support</span></h1>
+        <h3>Your Trust, Our Business.</h3>
+        <hr>
+<h3>Your message has been received.<br>We will contact you soon.</h3>
+<a type="button" class="btn btn-light" href="{% url 'home' %}">Home</a>  <a type="button" class="btn btn-light" href="{% url 'orders'%}">New Order</a>
+
+        {% endblock %}

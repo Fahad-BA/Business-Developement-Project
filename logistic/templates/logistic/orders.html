@@ -1,0 +1,26 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+        <title>Logistics company | Order</title>
+        <h1>Make <span>a New Order</span></h1>
+        <h3>Your Trust, Our Business.</h3>
+        <hr>
+        {% if user.is_authenticated %}
+        <form method="POST">
+                {% csrf_token %}
+                <!-- Link: {{ form.Link }}<br>
+                Quantity: {{ form.Quantity }}<br>
+                City: {{ form.City }}<br>
+                Package: {{form.Package}}<br> -->
+                <table>
+                {{ form.as_table }}
+        </table><br>
+                <a type="button" href="{% url 'Packs' %}" target="_blank">* Learn more about our packages</a><br><br>
+                <button type="submit" class="btn btn-secondary btn-lg">Order.</button>
+        </form>
+        {% else %}
+        <h3>You have to be logged in to submit a new order..</h3>
+
+        {% endif %}
+
+{% endblock %}

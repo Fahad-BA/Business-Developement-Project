@@ -1,0 +1,30 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+        <title>Logistics company | Tracking</title>
+                        <h1>Track <span>Your Shipment</span></h1>
+                        <h3>Your Trust, Our Business.</h3>
+                        <hr>
+                        <b>{{ Error }}</b>
+                <p class="paddingB">
+                        <form>
+                                <input name="Track" type="text" placeholder="Shipment Number" class="form-control form-control-lg" required /><br>
+                                <div class="input-group-append">
+                                        <button type="submit" class="btn btn-secondary btn-lg">Track</button>
+                                </div>
+                        </form>
+<br><br>
+{% for shipment in shipments %}
+<hr>
+<h3>
+        Shipment number is: {{ shipment.Shipment_Number }}<br>
+        Shipment status is: {{ shipment.Status }} <br>
+        Arrive Date is: {{ shipment.Arrive_Date }}<br>
+        Last Updated: {{ shipment.Updated }}<br>
+        Pick up Location: {{shipment.Pickup_Location}}
+</h3>
+        {% endfor %}
+
+<br><br><a type="button" class="btn btn-light" href="{% url 'home' %}">Home</a>  <a type="button" class="btn btn-light" href="{% url 'orders'%}">New Order</a>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+    <head>
+        <title>Logistics company</title>
+    </head>
+    <body>
+        <h1>Sign <span>up.</span></h1>
+        <h2>{{ error }}</h2>
+        <hr>
+
+        {% if user.is_authenticated %}
+        <h3>You're already logged in.</h3>
+        <br><br><a type="button" class="btn btn-light" href="{% url 'home' %}">Home</a>  <a type="button" class="btn btn-light" href="{% url 'orders'%}">New Order</a>
+
+        {% else %}
+        <form method="POST">
+          {% csrf_token %}
+
+          {% for field in Registration_Form %}
+          {{field.label_tag}}
+          {{field}}<br>
+          {% for error in field.errors %}
+          <br><b style='color: red;'>{{error}}</b><br><br>
+          {% endfor %}
+          {% endfor %}
+
+          <button type="submit" class="btn btn-secondary btn-lg">Signup</button>
+
+          {% endif %}
+{% endblock %}

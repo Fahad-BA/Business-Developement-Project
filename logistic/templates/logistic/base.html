@@ -1,0 +1,86 @@
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<!-- icons -->
+<script src="https://kit.fontawesome.com/4764f4dcde.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAANm+1APDhDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAACIiIgAAARICIiIiIgABESIiIiIiIAIREiIiIiIiABERIiIiIiICIhESIiIiIiIiIREiIiIiIiIiIhIiIiIiIiIiIREiIiIiIiIiERIiIiIiIiIhERIgIiIiIiIREQAiIiIiIiEREAIiIiIiIhEQACIiIiIiARAAACIiIgAAF4HwAAEAcAAAADAAAAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACAAAAAwAAAAOAEAAD4HgAA" rel="icon" type="image/x-icon" />
+<!-- static / css -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'logistic/style.css' %}">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand"><img src="{% static 'logistic/logo.png' %}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Customer?
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'tracking' %}"><i class="fas fa-tasks"></i> Tracking</a>
+            <a class="dropdown-item" href="{% url 'orders' %}"><i class="fas fa-archive"></i> Order</a>
+            <a class="dropdown-item" href="{% url 'Packs' %}"><i class="fas fa-cubes"></i> Packages</a>
+            <!-- <a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user"></i> Update your email</a> -->
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'support' %}"><b><i class="fas fa-comment"></i> Support</b></a>
+          </div>
+        </li>
+        <li class="nav-item">
+            {% if user.is_authenticated %}
+            <a type="button" class="btn btn-light" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> <b>Logout</b></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+{% else %}
+
+<a type="button" class="btn btn-light" href="{% url 'signup' %}">Sign up</a>
+<a type="button" class="btn btn-light" href="{% url 'login' %}">Login</a>
+</li>
+</ul>
+</div>
+</nav>
+{% endif %}
+
+<div class="about-section paddingTB60 gray-bg">
+  <div class="container">
+          <div class="row">
+                                  <div class="col-md-7 col-sm-6">
+                                          <div class="about-title clearfix">
+{% block content %}
+<br>
+{% endblock %}
+</div>
+<div class="about-icons"> 
+        <ul >
+            <li><a href="https://www.facebook.com/" target="_blank"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a> </li>
+            <li><a href="https://twitter.com/" target="_blank"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a> </li>
+            <li> <a href="mailto:fhidan@outlook.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a> </li>
+        </ul>       
+</div>
+</div>
+</div>
+</div>
+</div> 
+<div class="footer-basic">
+  <footer id="footer">
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="{% url 'support' %}">Customer Support</a></li>
+          <li class="list-inline-item"><a href="{% url 'about' %}">About us</a></li>
+          <li class="list-inline-item"><a href="{% url 'story' %}">Our Story</a></li>
+      </ul>
+      <p class="copyright">Goods Importing © 2021</p>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

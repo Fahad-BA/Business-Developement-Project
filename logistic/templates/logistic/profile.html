@@ -1,0 +1,23 @@
+{% extends 'logistic/base.html' %}
+{% block content %}
+
+<form method="post">{% csrf_token %}</form>
+{% for field in account_form %}
+<p>
+        New Email:
+        {{field}}
+</p>
+{% endfor %}
+
+{% for field in account_form %}
+        {% for error in field.errors %}
+        <b style='color: red;'>{{error}}</b><br><br>
+
+        {% endfor %}
+{% endfor %}
+{% if account_form.non_field_error %}
+<b style='color: red;'>{{account_form.non_field_error}}</b><br><br>
+{% endif %}
+<button type="submit" class="btn btn-secondary btn-lg">Save</button>
+</form>
+{% endblock %}
